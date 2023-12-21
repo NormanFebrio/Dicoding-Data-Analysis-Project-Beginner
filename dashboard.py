@@ -155,8 +155,11 @@ median_weekday = main_df.groupby(
     ['day_sorter', 'weekday']).cnt.median().reset_index()
 
 fig, ax = plt.subplots(figsize=(14, 7))
-sns.barplot(data=sum_weekday.sort_values(by='day_sorter'), x='weekday', y='cnt', label='Count Sum', palette=[
-            "#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3", "green", "#D3D3D3"])
+sns.barplot(data=sum_weekday.sort_values(by='day_sorter'),
+            x='weekday', y='cnt',
+            label='Count Sum',
+            palette=["#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3", "green", "#D3D3D3"]
+           )
 plt.xlabel(None)
 plt.ylabel(None)
 for x, y in zip(range(0, 7), sum_weekday['cnt']):
@@ -166,16 +169,22 @@ st.pyplot(fig)
 
 fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(14, 5))
 
-sns.barplot(data=mean_weekday.sort_values(by='day_sorter'), x='weekday', y='cnt', label='Count Mean', ax=ax[0], palette=[
-            "#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3", "green", "#D3D3D3"])
+sns.barplot(data=mean_weekday.sort_values(by='day_sorter'),
+            x='weekday', y='cnt',
+            label='Count Mean', ax=ax[0],
+            palette=["#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3", "green", "#D3D3D3"]
+           )
 ax[0].set_title("Mean of Users")
 ax[0].set_xlabel(None)
 ax[0].set_ylabel(None)
 for x, y in zip(range(7), mean_weekday['cnt']):
     ax[0].text(x, y, str(int(y)), ha='center', va='bottom', fontsize=12)
 
-sns.barplot(data=median_weekday.sort_values(by='day_sorter'), x='weekday', y='cnt', label='Count Median',
-            ax=ax[1], palette=["#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3",  "green", "#D3D3D3", "#D3D3D3"])
+sns.barplot(data=median_weekday.sort_values(by='day_sorter'),
+            x='weekday', y='cnt',
+            label='Count Median', ax=ax[1],
+            palette=["#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3",  "green", "#D3D3D3", "#D3D3D3"]
+           )
 ax[1].set_title("Median of Users")
 ax[1].set_xlabel(None)
 ax[1].set_ylabel(None)
